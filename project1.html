@@ -3,211 +3,319 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Project 1 — Passenger Experience Diagnostic | Gloria Sarah Saragih</title>
+<title>Project 1 — Service Diagnostic | Gloria Sarah Saragih</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root { --blue:#1A4A8A; --lblue:#4A90D9; --llblue:#EBF3FB; --orange:#E8703A; --green:#2E8B57; --red:#C0392B; --gray:#555; --lgray:#F8F9FA; }
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family:'Segoe UI',Arial,sans-serif; color:#222; background:var(--lgray); }
+:root {
+  --ink: #0D1B2A; --blue: #1A4A8A; --blue-mid: #2D6DB5;
+  --blue-light: #C8DCF5; --blue-faint: #EEF5FD;
+  --orange: #D4541A; --red: #C0392B; --green: #1E6B45;
+  --sand: #F5F0E8; --white: #FFFFFF;
+  --muted: #6B7A8D; --rule: #D8E4F0; --lgray: #F7F9FC;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--ink); overflow-x: hidden; }
 
-  .topbar { background:var(--blue); padding:14px 28px; display:flex; justify-content:space-between; align-items:center; }
-  .topbar a { color:rgba(255,255,255,0.8); text-decoration:none; font-size:0.9rem; }
-  .topbar a:hover { color:white; }
-  .topbar-title { color:white; font-weight:700; font-size:0.95rem; }
+/* NAV */
+nav { position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 16px 48px; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--rule); }
+.nav-back a { font-size: 0.82rem; font-weight: 500; color: var(--muted); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color 0.2s; }
+.nav-back a:hover { color: var(--blue); }
+.nav-title { font-family: 'DM Serif Display', serif; font-size: 0.95rem; color: var(--blue); }
+.nav-next a { font-size: 0.82rem; font-weight: 500; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.nav-next a:hover { color: var(--orange); }
 
-  .hero { background:linear-gradient(135deg,var(--blue),#2D6DB5); color:white; padding:56px 32px 48px; }
-  .hero-inner { max-width:900px; margin:0 auto; }
-  .hero-tag { display:inline-block; background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.3); border-radius:20px; padding:5px 16px; font-size:0.8rem; letter-spacing:1px; text-transform:uppercase; margin-bottom:18px; }
-  .hero h1 { font-size:2rem; font-weight:800; line-height:1.3; margin-bottom:14px; }
-  .hero p { font-size:1.05rem; opacity:0.85; line-height:1.7; max-width:720px; }
-  .hero-meta { display:flex; gap:24px; flex-wrap:wrap; margin-top:28px; }
-  .meta-item { font-size:0.85rem; opacity:0.75; }
-  .meta-item strong { opacity:1; display:block; font-size:0.95rem; }
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, #071526 0%, #0F2D5A 45%, #1A4A8A 100%);
+  padding: 80px 48px 72px; position: relative; overflow: hidden;
+}
+.hero-pattern {
+  position: absolute; inset: 0; z-index: 0;
+  background-image: radial-gradient(circle at 70% 30%, rgba(45,109,181,0.3) 0%, transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(212,84,26,0.1) 0%, transparent 40%);
+}
+.hero-inner { position: relative; z-index: 1; max-width: 860px; }
+.hero-tag { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 28px; }
+.hero-tag .dot { width: 6px; height: 6px; background: var(--orange); border-radius: 50%; }
+.hero-tag span { font-size: 0.75rem; font-weight: 500; color: rgba(255,255,255,0.5); letter-spacing: 2px; text-transform: uppercase; }
+.hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 4vw, 3.2rem); color: white; line-height: 1.15; margin-bottom: 20px; letter-spacing: -0.5px; }
+/* ALL HERO TEXT WHITE */
+.hero-desc { font-size: 1rem; color: rgba(255,255,255,0.75); line-height: 1.75; max-width: 660px; margin-bottom: 40px; font-weight: 300; }
+.hero-meta { display: flex; gap: 0; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 28px; }
+.meta-block { padding: 0 36px 0 0; margin-right: 36px; border-right: 1px solid rgba(255,255,255,0.1); }
+.meta-block:last-child { border-right: none; }
+.meta-label { font-size: 0.7rem; font-weight: 600; color: rgba(255,255,255,0.4); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 5px; }
+.meta-val { font-size: 0.88rem; color: rgba(255,255,255,0.85); font-weight: 400; }
 
-  .content { max-width:960px; margin:0 auto; padding:48px 24px; }
-  h2 { font-size:1.6rem; font-weight:800; color:var(--blue); margin-bottom:12px; }
-  h3 { font-size:1.15rem; font-weight:700; color:var(--blue); margin-bottom:10px; }
-  p { color:var(--gray); line-height:1.75; margin-bottom:14px; }
+/* CONTENT */
+.content { max-width: 860px; margin: 0 auto; padding: 0 48px 80px; }
+@media(max-width:640px) { .content { padding: 0 24px 60px; } nav { padding: 14px 24px; } .hero { padding: 60px 24px 56px; } .hero-meta { flex-direction: column; gap: 16px; } .meta-block { border-right: none; padding-right: 0; margin-right: 0; } }
 
-  .section { margin-bottom:60px; }
-  .section-label { font-size:0.78rem; font-weight:700; color:var(--lblue); letter-spacing:2px; text-transform:uppercase; margin-bottom:8px; }
+.content-section { padding-top: 64px; padding-bottom: 8px; }
+.section-label { font-size: 0.72rem; font-weight: 600; color: var(--orange); letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 10px; }
+h2 { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--ink); margin-bottom: 16px; letter-spacing: -0.3px; }
+h3 { font-size: 1.05rem; font-weight: 600; color: var(--ink); margin-bottom: 12px; }
+p { font-size: 0.95rem; color: var(--muted); line-height: 1.8; margin-bottom: 16px; font-weight: 300; }
+p strong { color: var(--ink); font-weight: 600; }
 
-  .chart-block { background:white; border-radius:14px; padding:28px; margin:24px 0; box-shadow:0 3px 16px rgba(0,0,0,0.08); }
-  .chart-block img { width:100%; height:auto; border-radius:8px; }
-  .chart-caption { font-size:0.83rem; color:var(--gray); margin-top:12px; font-style:italic; text-align:center; }
+/* DIVIDER */
+.divider { height: 1px; background: var(--rule); margin: 64px 0 0; }
 
-  .insight-box { background:var(--llblue); border-left:4px solid var(--blue); border-radius:0 10px 10px 0; padding:18px 22px; margin:20px 0; }
-  .insight-box h4 { color:var(--blue); font-size:0.95rem; margin-bottom:6px; }
-  .insight-box p { color:#333; margin:0; font-size:0.92rem; }
+/* CHART */
+.chart-wrap { background: var(--lgray); border: 1px solid var(--rule); border-radius: 4px; padding: 28px; margin: 28px 0; }
+.chart-wrap img { width: 100%; height: auto; display: block; border-radius: 2px; }
+.chart-note { font-size: 0.78rem; color: var(--muted); margin-top: 12px; text-align: center; font-style: italic; font-weight: 300; line-height: 1.5; margin-bottom: 0; }
 
-  .finding-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin:24px 0; }
-  @media(max-width:700px) { .finding-grid{grid-template-columns:1fr;} }
-  .finding-card { background:white; border-radius:12px; padding:22px; box-shadow:0 2px 10px rgba(0,0,0,0.07); border-top:4px solid; }
-  .finding-card.red { border-color:var(--red); }
-  .finding-card.orange { border-color:var(--orange); }
-  .finding-card.blue { border-color:var(--blue); }
-  .finding-card .label { font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px; }
-  .finding-card.red .label { color:var(--red); }
-  .finding-card.orange .label { color:var(--orange); }
-  .finding-card.blue .label { color:var(--blue); }
-  .finding-card h4 { font-size:1.0rem; color:#222; margin-bottom:8px; }
-  .finding-card p { font-size:0.88rem; color:var(--gray); margin:0; }
+/* CALLOUT */
+.callout { border-left: 3px solid var(--blue); background: var(--blue-faint); padding: 20px 24px; margin: 24px 0; border-radius: 0 4px 4px 0; }
+.callout h4 { font-size: 0.88rem; font-weight: 600; color: var(--blue); margin-bottom: 6px; }
+.callout p { color: #2A3A4A; margin: 0; font-size: 0.88rem; font-weight: 400; }
 
-  .rec-list { list-style:none; margin:20px 0; }
-  .rec-list li { background:white; border-radius:10px; padding:16px 20px; margin-bottom:12px; display:flex; gap:14px; box-shadow:0 1px 8px rgba(0,0,0,0.06); font-size:0.92rem; color:var(--gray); }
-  .rec-list li .num { background:var(--blue); color:white; border-radius:50%; width:28px; height:28px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:0.85rem; flex-shrink:0; }
+/* EVIDENCE TABLE */
+.table-wrap { overflow-x: auto; margin: 24px 0; }
+table { width: 100%; border-collapse: collapse; }
+thead th { background: var(--blue); color: white; padding: 12px 16px; font-size: 0.82rem; font-weight: 600; text-align: left; }
+tbody td { padding: 12px 16px; font-size: 0.85rem; color: var(--muted); border-bottom: 1px solid var(--rule); font-weight: 300; }
+tbody td strong { color: var(--ink); font-weight: 500; }
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:nth-child(even) td { background: var(--lgray); }
 
-  .nav-footer { background:white; border-top:1px solid #E8E8E8; padding:24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
-  .nav-footer a { color:var(--blue); text-decoration:none; font-weight:600; font-size:0.95rem; }
-  .nav-footer a:hover { text-decoration:underline; }
-  .nav-btn { background:var(--orange); color:white; padding:10px 22px; border-radius:8px; }
-  .nav-btn:hover { background:#C0572A; color:white; text-decoration:none !important; }
+/* FRICTION CARDS */
+.friction-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin: 24px 0; }
+@media(max-width:700px) { .friction-grid { grid-template-columns: 1fr; } }
+.friction-card { padding: 24px; border-radius: 2px; border-top: 4px solid; background: white; box-shadow: 0 2px 12px rgba(13,27,42,0.06); }
+.friction-card.f1 { border-color: var(--red); }
+.friction-card.f2 { border-color: var(--orange); }
+.friction-card.f3 { border-color: var(--blue); }
+.friction-score { font-size: 0.72rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
+.friction-card.f1 .friction-score { color: var(--red); }
+.friction-card.f2 .friction-score { color: var(--orange); }
+.friction-card.f3 .friction-score { color: var(--blue); }
+.friction-card h4 { font-size: 0.95rem; font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+.friction-card p { font-size: 0.84rem; color: var(--muted); margin: 0; line-height: 1.6; font-weight: 300; }
+
+/* RECOMMENDATIONS */
+.rec-list { list-style: none; margin: 20px 0; }
+.rec-item { display: flex; gap: 18px; align-items: flex-start; padding: 18px 0; border-bottom: 1px solid var(--rule); }
+.rec-item:last-child { border-bottom: none; }
+.rec-num { width: 32px; height: 32px; border-radius: 50%; background: var(--blue); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 600; flex-shrink: 0; margin-top: 2px; }
+.rec-body h4 { font-size: 0.93rem; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+.rec-body p { font-size: 0.85rem; color: var(--muted); margin: 0; line-height: 1.6; font-weight: 300; }
+
+/* NAV FOOTER */
+.nav-footer { border-top: 1px solid var(--rule); padding: 28px 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; background: var(--lgray); }
+.nav-footer a { text-decoration: none; font-size: 0.88rem; font-weight: 600; color: var(--blue); transition: color 0.2s; }
+.nav-footer a:hover { color: var(--orange); }
+.nav-btn { background: var(--orange); color: white !important; padding: 12px 24px; border-radius: 4px; }
+.nav-btn:hover { background: #A03A0D; color: white !important; }
+@media(max-width:640px) { .nav-footer { padding: 24px; } }
 </style>
 </head>
 <body>
 
-<div class="topbar">
-  <a href="index.html">← Kembali ke Portfolio</a>
-  <span class="topbar-title">Project 01 — Service Experience Diagnostic</span>
-  <a href="project2.html">Project 02 →</a>
-</div>
+<nav>
+  <div class="nav-back"><a href="index.html">← Portfolio</a></div>
+  <div class="nav-title">Project 01 — Service Diagnostic</div>
+  <div class="nav-next"><a href="project2.html">Project 02 →</a></div>
+</nav>
 
 <div class="hero">
+  <div class="hero-pattern"></div>
   <div class="hero-inner">
-    <div class="hero-tag">Project 01 · Independent Analysis</div>
+    <div class="hero-tag"><div class="dot"></div><span>Project 01 · Independent Analysis</span></div>
     <h1>Passenger Experience & Service Bottleneck Diagnostic</h1>
-    <p>Analisis customer journey penumpang Transjakarta, identifikasi friction point utama, root cause analysis, dan rekomendasi perbaikan layanan berbasis data publik yang tersedia.</p>
+    <p class="hero-desc">Analisis customer journey penumpang Transjakarta, identifikasi friction point utama, root cause analysis, dan rekomendasi perbaikan layanan berbasis data publik yang tersedia.</p>
     <div class="hero-meta">
-      <div class="meta-item"><strong>Metode</strong>Customer Journey Map, Service Blueprint, 5 Whys, Impact-Effort Matrix</div>
-      <div class="meta-item"><strong>Data</strong>GTFS Transjakarta, Laporan Kinerja 2024, Satu Data Jakarta</div>
-      <div class="meta-item"><strong>Output</strong>Diagnostic Report + 30-60-90 Day Roadmap</div>
+      <div class="meta-block">
+        <div class="meta-label">Metode</div>
+        <div class="meta-val">Customer Journey Map, Service Blueprint, 5 Whys, Impact-Effort Matrix</div>
+      </div>
+      <div class="meta-block">
+        <div class="meta-label">Data</div>
+        <div class="meta-val">GTFS Transjakarta, Laporan Kinerja 2024, Satu Data Jakarta</div>
+      </div>
+      <div class="meta-block">
+        <div class="meta-label">Output</div>
+        <div class="meta-val">Diagnostic Report + Roadmap 30–60–90 Hari</div>
+      </div>
     </div>
   </div>
 </div>
 
 <div class="content">
 
-  <!-- KONTEKS -->
-  <div class="section">
+  <!-- EVIDENCE BASE -->
+  <div class="content-section">
+    <p class="section-label">Basis Analisis</p>
+    <h2>Desk-Based Validation</h2>
+    <p>Analisis ini tidak mengklaim data internal atau observasi langsung. Seluruh temuan dibangun dari triangulasi sumber publik yang tersedia dan dapat diverifikasi secara independen.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Sumber</th><th>Yang Divalidasi</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Laporan Kinerja & GTFS Transjakarta</strong></td><td>Skala layanan, struktur jaringan rute, konektivitas halte</td></tr>
+          <tr><td><strong>Satu Data Jakarta</strong></td><td>Data armada, rute, dan penumpang tahunan</td></tr>
+          <tr><td><strong>Ulasan Pengguna (Google Maps)</strong></td><td>Pain point berulang di halte-halte utama</td></tr>
+          <tr><td><strong>Simulasi Perjalanan Digital</strong></td><td>Kompleksitas rute, jumlah transfer, potensi titik bingung</td></tr>
+          <tr><td><strong>Liputan Media & Forum Pengguna</strong></td><td>Pola keluhan yang konsisten lintas waktu dan platform</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout">
+      <h4>Catatan Metodologi</h4>
+      <p>Berdasarkan triangulasi desk-based ini, tiga tema friction berulang teridentifikasi secara konsisten: transfer confusion, waiting-time uncertainty, dan first/last-mile disconnection.</p>
+    </div>
+
+    <h3>Sample: Pola Ulasan Publik per Lokasi</h3>
+    <p>Contoh kategorisasi ulasan Google Maps dari 4 titik transit utama — digunakan sebagai qualitative signal, bukan data representatif.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Lokasi</th><th>Tema Dominan Ulasan</th><th>Friction yang Teridentifikasi</th><th>Implikasi</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Dukuh Atas</strong></td><td>Integrasi & kepadatan antar moda</td><td>Transfer complexity</td><td>Butuh transfer clarity system</td></tr>
+          <tr><td><strong>Cawang</strong></td><td>Antrean panjang, penumpukan</td><td>Passenger flow bottleneck</td><td>Butuh crowd-flow playbook</td></tr>
+          <tr><td><strong>Harmoni</strong></td><td>Banyak rute, bingung arah</td><td>Information overload</td><td>Butuh simplifikasi info rute</td></tr>
+          <tr><td><strong>Blok M / CSW</strong></td><td>Koneksi antar moda tidak jelas</td><td>Wayfinding friction</td><td>Butuh destination-based guidance</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:0.78rem;color:var(--muted);font-style:italic;margin-top:-8px;">Sumber: Ulasan publik Google Maps per halte (sampel, bukan data kuantitatif) · Diakses sebagai directional signal untuk desk-based validation</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- GROWTH -->
+  <div class="content-section">
     <p class="section-label">Latar Belakang</p>
-    <h2>Mengapa Ini Penting?</h2>
-    <p>Transjakarta melayani lebih dari <strong>1 juta penumpang setiap hari</strong> dengan 242 rute dan 4.388 unit armada pada 2024 — pertumbuhan signifikan dari tahun-tahun sebelumnya. Namun pertumbuhan layanan tidak selalu berbanding lurus dengan kualitas pengalaman penumpang. Identifikasi bottleneck yang sistematis menjadi kunci untuk memastikan transformasi operasional yang berkelanjutan.</p>
-
-    <div class="chart-block">
-      <img src="charts/1A_growth_overview.png" alt="Pertumbuhan Transjakarta 2019-2024">
-      <p class="chart-caption">Sumber: Laporan Kinerja Transjakarta 2024 | Armada tumbuh 41% dari 2019 ke 2024; penumpang pulih di atas level pre-pandemi</p>
+    <h2>Skala & Pertumbuhan Layanan</h2>
+    <p>Transjakarta melayani lebih dari <strong>1 juta penumpang setiap hari</strong> dengan 242 rute dan 4.388 unit armada pada 2024 — pertumbuhan signifikan dari tahun-tahun sebelumnya. Pertumbuhan layanan tidak selalu berbanding lurus dengan kualitas pengalaman penumpang.</p>
+    <div class="chart-wrap">
+      <img src="charts/1A_growth_overview.png" alt="Pertumbuhan Transjakarta 2019–2024">
+      <p class="chart-note">Sumber: Laporan Kinerja Transjakarta 2024 | Armada tumbuh 41% dari 2019 ke 2024; penumpang pulih melampaui level pre-pandemi</p>
     </div>
-
-    <div class="chart-block">
+    <div class="chart-wrap">
       <img src="charts/1B_service_breakdown.png" alt="Distribusi Jenis Layanan">
-      <p class="chart-caption">Transjakarta mengoperasikan 4 jenis layanan dengan BRT sebagai backbone utama (38% rute)</p>
+      <p class="chart-note">4 jenis layanan Transjakarta — BRT menjadi backbone utama dengan 38% dari total rute aktif</p>
     </div>
   </div>
 
-  <!-- KEPADATAN KORIDOR -->
-  <div class="section">
+  <div class="divider"></div>
+
+  <!-- CORRIDOR DENSITY -->
+  <div class="content-section">
     <p class="section-label">Analisis Jaringan</p>
-    <h2>Peta Kepadatan Koridor</h2>
-    <p>Berdasarkan analisis pola rute dari data GTFS publik Transjakarta dan triangulasi dengan laporan media serta forum pengguna, berikut adalah estimasi kepadatan relatif koridor dan titik transit utama:</p>
-
-    <div class="chart-block">
-      <img src="charts/1C_corridor_density.png" alt="Kepadatan Koridor Transjakarta">
-      <p class="chart-caption">Estimasi berbasis: analisis konektivitas GTFS, pola liputan media, dan forum pengguna Transjakarta | Skala relatif 0–100</p>
+    <h2>Indicative Corridor Complexity Index</h2>
+    <p>Indeks kompleksitas relatif koridor dan titik transit utama — dikembangkan dari analisis konektivitas data GTFS publik, pola liputan media, dan ulasan pengguna yang tersedia. Bukan data resmi atau ukuran kepadatan aktual Transjakarta.</p>
+    <div class="chart-wrap">
+      <img src="charts/1C_corridor_density.png" alt="Indicative Corridor Complexity Index">
+      <p class="chart-note">Indicative index — berbasis analisis konektivitas GTFS + triangulasi ulasan pengguna publik | Skala komparatif 0–100, bukan data operasional resmi</p>
     </div>
-
-    <div class="insight-box">
+    <div class="callout">
       <h4>Insight Kunci</h4>
-      <p>Titik transit dengan fungsi interchange (Dukuh Atas, Cawang, Harmoni) menunjukkan indeks kepadatan tertinggi — bukan sekadar karena volume, tetapi karena kompleksitas navigasi yang dihadapi penumpang saat berpindah rute. Ini menjadikan <strong>transfer experience</strong> sebagai prioritas utama diagnostik.</p>
+      <p>Titik transit interchange (Dukuh Atas, Cawang, Harmoni) menunjukkan indeks kepadatan tertinggi — bukan hanya karena volume, tetapi karena kompleksitas navigasi saat berpindah rute. <strong>Transfer experience</strong> menjadi prioritas utama diagnostik ini.</p>
     </div>
   </div>
+
+  <div class="divider"></div>
 
   <!-- CUSTOMER JOURNEY -->
-  <div class="section">
+  <div class="content-section">
     <p class="section-label">Framework Analisis</p>
     <h2>Customer Journey Map</h2>
-    <p>Pemetaan pengalaman penumpang di 7 tahap perjalanan, dari perencanaan hingga last-mile, dengan identifikasi titik emosi dan friction score per tahap:</p>
-
-    <div class="chart-block">
-      <img src="charts/1D_customer_journey_map.png" alt="Customer Journey Map Transjakarta">
-      <p class="chart-caption">Berdasarkan analisis pola keluhan publik (media, forum, Google Reviews) & struktur data GTFS Transjakarta</p>
+    <p>Pemetaan pengalaman penumpang di 7 tahap perjalanan — dari perencanaan awal hingga last-mile — dengan identifikasi friction score dan titik emosi di setiap tahap.</p>
+    <div class="chart-wrap">
+      <img src="charts/1D_customer_journey_map.png" alt="Customer Journey Map">
+      <p class="chart-note">Berdasarkan sintesis ulasan pengguna publik, simulasi perjalanan digital & analisis struktur GTFS Transjakarta</p>
     </div>
   </div>
 
-  <!-- KEY FINDINGS -->
-  <div class="section">
+  <div class="divider"></div>
+
+  <!-- FINDINGS -->
+  <div class="content-section">
     <p class="section-label">Temuan Utama</p>
     <h2>3 Friction Point Kritis</h2>
-    <div class="finding-grid">
-      <div class="finding-card red">
-        <div class="label">Friction Score: 4.8/5</div>
+    <p>Tiga titik friction yang teridentifikasi secara konsisten di berbagai sumber validasi, diurutkan berdasarkan tingkat keparahan:</p>
+    <div class="friction-grid">
+      <div class="friction-card f1">
+        <div class="friction-score">Friction Score: 4.8/5</div>
         <h4>Transfer Route Confusion</h4>
-        <p>Penumpang kesulitan saat berganti rute di halte transit. Signage berbasis kode rute (bukan tujuan), tidak ada petunjuk arah visual, dan layout yang tidak memisahkan arus masuk-keluar-transit.</p>
+        <p>Signage berbasis kode rute bukan tujuan, tidak ada petunjuk arah visual, layout halte yang tidak memisahkan arus masuk-keluar-transit.</p>
       </div>
-      <div class="finding-card orange">
-        <div class="label">Friction Score: 4.2/5</div>
+      <div class="friction-card f2">
+        <div class="friction-score">Friction Score: 4.2/5</div>
         <h4>Waiting Time Uncertainty</h4>
-        <p>Ketidakpastian waktu tunggu saat jam sibuk menurunkan kepercayaan penumpang. Ketiadaan informasi real-time yang konsisten di seluruh halte memperparah kondisi ini.</p>
+        <p>Ketidakpastian waktu tunggu saat jam sibuk menurunkan kepercayaan penumpang. Informasi real-time tidak konsisten di seluruh halte.</p>
       </div>
-      <div class="finding-card blue">
-        <div class="label">Friction Score: 4.0/5</div>
+      <div class="friction-card f3">
+        <div class="friction-score">Friction Score: 4.0/5</div>
         <h4>Last-Mile Disconnection</h4>
-        <p>Koneksi antara halte tujuan dan destinasi akhir penumpang masih lemah — terutama di kawasan perumahan dan area non-komersial yang belum terjangkau Mikrotrans secara optimal.</p>
+        <p>Koneksi halte ke destinasi akhir masih lemah, terutama di kawasan perumahan yang belum terjangkau Mikrotrans secara optimal.</p>
       </div>
     </div>
+    <div class="callout" style="border-color:#6B7A8D;background:#F7F9FC;">
+      <h4 style="color:#3A4A5A;">Basis Friction Score</h4>
+      <p style="color:#3A4A5A;">Skor friction (1–5) merupakan estimasi kualitatif yang dikembangkan dari: (a) frekuensi kemunculan tema keluhan dalam ulasan publik Google Maps di 6 halte utama, (b) kompleksitas navigasi dari simulasi perjalanan digital, dan (c) triangulasi dengan pola liputan media transportasi Jakarta. Skala ini bersifat komparatif dan indikatif — bukan pengukuran kuantitatif formal.</p>
+    </div>
   </div>
+
+  <div class="divider"></div>
 
   <!-- ROOT CAUSE -->
-  <div class="section">
+  <div class="content-section">
     <p class="section-label">Root Cause Analysis</p>
     <h2>Mengapa Transfer Confusion Terjadi?</h2>
-    <p>Menggunakan pendekatan 5 Whys dan Fishbone Diagram, akar permasalahan kebingungan transfer dapat dipetakan ke tiga kelompok faktor:</p>
-
-    <div class="chart-block">
+    <p>Menggunakan pendekatan 5 Whys dan Fishbone Diagram, akar permasalahan dipetakan ke tiga kelompok faktor yang saling berinteraksi.</p>
+    <div class="chart-wrap">
       <img src="charts/1E_root_cause.png" alt="Root Cause Analysis">
-      <p class="chart-caption">Analisis berbasis struktur sistem transportasi publik, pola keluhan pengguna, dan benchmarking dengan sistem transit internasional</p>
+      <p class="chart-note">Akar masalah tersebar di tiga domain: informasi & signage, SDM & pelayanan, serta infrastruktur & desain halte</p>
     </div>
-
-    <div class="insight-box">
-      <h4>Implikasi untuk Solusi</h4>
-      <p>Akar masalah tersebar di tiga domain (informasi, SDM, infrastruktur) artinya solusi parsial tidak akan cukup. Diperlukan intervensi berlapis yang dimulai dari yang paling feasible (signage, script petugas) sebelum masuk ke perubahan infrastruktur yang membutuhkan resource besar.</p>
+    <div class="callout">
+      <h4>Implikasi Solusi</h4>
+      <p>Akar masalah yang tersebar di tiga domain berarti solusi parsial tidak akan cukup. Diperlukan intervensi berlapis — dimulai dari yang paling feasible (signage, script petugas) sebelum masuk ke perubahan infrastruktur berskala besar.</p>
     </div>
   </div>
 
+  <div class="divider"></div>
+
   <!-- IMPACT EFFORT -->
-  <div class="section">
+  <div class="content-section">
     <p class="section-label">Prioritasi Rekomendasi</p>
     <h2>Impact–Effort Matrix</h2>
-
-    <div class="chart-block">
+    <p>10 rekomendasi dipetakan berdasarkan potensi dampak terhadap pengalaman penumpang versus kompleksitas implementasinya.</p>
+    <div class="chart-wrap">
       <img src="charts/1F_impact_effort.png" alt="Impact Effort Matrix">
-      <p class="chart-caption">10 rekomendasi dipetakan berdasarkan potensi dampak terhadap pengalaman penumpang vs kompleksitas implementasi</p>
+      <p class="chart-note">Quick Wins di kuadran kiri atas menjadi prioritas utama — impact tinggi, effort rendah, bisa diimplementasi dalam 30 hari</p>
     </div>
 
     <h3>Top 5 Rekomendasi Prioritas</h3>
     <ul class="rec-list">
-      <li><span class="num">1</span><div><strong>Transfer Clarity Kit</strong> — Signage berbasis tujuan (bukan kode rute) + floor marking arah transfer di 5 halte transit prioritas. Biaya rendah, impact tinggi, bisa diimplementasikan dalam 30 hari.</div></li>
-      <li><span class="num">2</span><div><strong>Script Standar Petugas</strong> — Panduan jawaban untuk 10 pertanyaan paling sering ditanyakan penumpang. Meningkatkan konsistensi dan efisiensi pelayanan tanpa investasi infrastruktur.</div></li>
-      <li><span class="num">3</span><div><strong>Peak-Hour Crowd-Flow SOP</strong> — Prosedur manajemen kepadatan saat jam sibuk dengan penambahan titik crowd-control di interchange tersibuk.</div></li>
-      <li><span class="num">4</span><div><strong>Passenger Friction Dashboard</strong> — Sistem kategorisasi keluhan sederhana yang memungkinkan weekly review dan prioritasi perbaikan berbasis data, bukan asumsi.</div></li>
-      <li><span class="num">5</span><div><strong>QR Code Mini-Map</strong> — Peta navigasi halte dalam format QR yang bisa diakses penumpang via smartphone, terutama di titik transit kompleks.</div></li>
+      <li class="rec-item"><div class="rec-num">1</div><div class="rec-body"><h4>Transfer Clarity Kit</h4><p>Signage berbasis tujuan (bukan kode rute) + floor marking arah transfer di 5 halte transit prioritas. Biaya rendah, impact tinggi, dapat diimplementasi dalam 30 hari.</p></div></li>
+      <li class="rec-item"><div class="rec-num">2</div><div class="rec-body"><h4>Script Standar Petugas</h4><p>Panduan jawaban untuk 10 pertanyaan paling sering ditanyakan penumpang. Meningkatkan konsistensi dan kecepatan pelayanan tanpa investasi infrastruktur tambahan.</p></div></li>
+      <li class="rec-item"><div class="rec-num">3</div><div class="rec-body"><h4>Peak-Hour Crowd-Flow SOP</h4><p>Prosedur manajemen kepadatan saat jam sibuk dengan penambahan titik crowd-control di interchange tersibuk. Langsung mengurangi friction fisik.</p></div></li>
+      <li class="rec-item"><div class="rec-num">4</div><div class="rec-body"><h4>Passenger Friction Dashboard</h4><p>Sistem kategorisasi keluhan sederhana yang memungkinkan weekly review dan prioritasi perbaikan berbasis data, bukan asumsi semata.</p></div></li>
+      <li class="rec-item"><div class="rec-num">5</div><div class="rec-body"><h4>QR Code Mini-Map</h4><p>Peta navigasi halte dalam format QR yang bisa diakses penumpang via smartphone — terutama di titik transit dengan kompleksitas tinggi.</p></div></li>
     </ul>
   </div>
 
+  <div class="divider"></div>
+
   <!-- ROADMAP -->
-  <div class="section">
+  <div class="content-section">
     <p class="section-label">Implementation Plan</p>
     <h2>Roadmap 30–60–90 Hari</h2>
-
-    <div class="chart-block">
+    <p>Rekomendasi dikelompokkan dalam tiga fase — dimulai dari intervensi yang paling feasible menuju perubahan sistemik yang membutuhkan resource lebih besar.</p>
+    <div class="chart-wrap">
       <img src="charts/1G_roadmap.png" alt="Implementation Roadmap">
-      <p class="chart-caption">Rekomendasi dikelompokkan berdasarkan timeline implementasi dan kompleksitas — dimulai dari quick wins menuju perubahan sistemik</p>
+      <p class="chart-note">30 hari: quick wins · 60 hari: sistem & proses · 90 hari: evaluasi & strategic improvements</p>
     </div>
   </div>
 
 </div>
 
-<!-- NAV FOOTER -->
 <div class="nav-footer">
-  <a href="index.html">← Kembali ke Halaman Utama</a>
+  <a href="index.html">← Kembali ke Portfolio</a>
   <a href="project2.html" class="nav-btn">Lanjut ke Project 02: Business Enablement →</a>
 </div>
 
