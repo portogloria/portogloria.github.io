@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project 2 — Business Enablement Strategy | Gloria Sarah Saragih</title>
+<style>
+  :root { --blue:#1A4A8A; --lblue:#4A90D9; --llblue:#EBF3FB; --orange:#E8703A; --green:#2E8B57; --red:#C0392B; --gray:#555; --lgray:#F8F9FA; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Segoe UI',Arial,sans-serif; color:#222; background:var(--lgray); }
+
+  .topbar { background:var(--orange); padding:14px 28px; display:flex; justify-content:space-between; align-items:center; }
+  .topbar a { color:rgba(255,255,255,0.85); text-decoration:none; font-size:0.9rem; }
+  .topbar a:hover { color:white; }
+  .topbar-title { color:white; font-weight:700; font-size:0.95rem; }
+
+  .hero { background:linear-gradient(135deg,var(--orange),#C0572A); color:white; padding:56px 32px 48px; }
+  .hero-inner { max-width:900px; margin:0 auto; }
+  .hero-tag { display:inline-block; background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.3); border-radius:20px; padding:5px 16px; font-size:0.8rem; letter-spacing:1px; text-transform:uppercase; margin-bottom:18px; }
+  .hero h1 { font-size:2rem; font-weight:800; line-height:1.3; margin-bottom:14px; }
+  .hero p { font-size:1.05rem; opacity:0.85; line-height:1.7; max-width:720px; }
+  .hero-meta { display:flex; gap:24px; flex-wrap:wrap; margin-top:28px; }
+  .meta-item { font-size:0.85rem; opacity:0.75; }
+  .meta-item strong { opacity:1; display:block; font-size:0.95rem; }
+
+  .content { max-width:960px; margin:0 auto; padding:48px 24px; }
+  h2 { font-size:1.6rem; font-weight:800; color:var(--orange); margin-bottom:12px; }
+  h3 { font-size:1.15rem; font-weight:700; color:var(--orange); margin-bottom:10px; }
+  p { color:var(--gray); line-height:1.75; margin-bottom:14px; }
+
+  .section { margin-bottom:60px; }
+  .section-label { font-size:0.78rem; font-weight:700; color:var(--orange); letter-spacing:2px; text-transform:uppercase; margin-bottom:8px; }
+
+  .chart-block { background:white; border-radius:14px; padding:28px; margin:24px 0; box-shadow:0 3px 16px rgba(0,0,0,0.08); }
+  .chart-block img { width:100%; height:auto; border-radius:8px; }
+  .chart-caption { font-size:0.83rem; color:var(--gray); margin-top:12px; font-style:italic; text-align:center; }
+
+  .insight-box { background:#FEF0E8; border-left:4px solid var(--orange); border-radius:0 10px 10px 0; padding:18px 22px; margin:20px 0; }
+  .insight-box h4 { color:var(--orange); font-size:0.95rem; margin-bottom:6px; }
+  .insight-box p { color:#333; margin:0; font-size:0.92rem; }
+
+  .seg-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin:24px 0; }
+  @media(max-width:700px) { .seg-grid{grid-template-columns:1fr;} }
+  .seg-card { background:white; border-radius:12px; padding:22px; box-shadow:0 2px 10px rgba(0,0,0,0.07); }
+  .seg-card .seg-name { font-size:0.8rem; font-weight:700; color:var(--orange); text-transform:uppercase; letter-spacing:1px; margin-bottom:8px; }
+  .seg-card h4 { font-size:1.0rem; color:#222; margin-bottom:10px; }
+  .seg-card ul { list-style:none; }
+  .seg-card ul li { font-size:0.87rem; color:var(--gray); padding:4px 0; border-bottom:1px solid #F5F5F5; }
+  .seg-card ul li::before { content:"• "; color:var(--orange); }
+
+  .initiative-box { background:white; border-radius:14px; padding:28px; margin:24px 0; box-shadow:0 3px 16px rgba(0,0,0,0.08); border-left:5px solid var(--orange); }
+  .initiative-box h3 { color:var(--orange); font-size:1.2rem; margin-bottom:10px; }
+  .comp-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-top:16px; }
+  @media(max-width:600px) { .comp-grid{grid-template-columns:1fr;} }
+  .comp-item { background:var(--lgray); border-radius:8px; padding:14px 16px; }
+  .comp-item h5 { color:var(--blue); font-size:0.88rem; margin-bottom:6px; }
+  .comp-item p { font-size:0.83rem; color:var(--gray); margin:0; }
+
+  .nav-footer { background:white; border-top:1px solid #E8E8E8; padding:24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+  .nav-footer a { color:var(--blue); text-decoration:none; font-weight:600; font-size:0.95rem; }
+  .nav-footer a:hover { text-decoration:underline; }
+  .nav-back { color:var(--blue) !important; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="project1.html">← Project 01</a>
+  <span class="topbar-title">Project 02 — Business Enablement Strategy</span>
+  <a href="index.html">Beranda →</a>
+</div>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Project 02 · Independent Analysis</div>
+    <h1>Ridership Stickiness & Segment-Based Business Enablement Strategy</h1>
+    <p>Strategi berbasis segmentasi pengguna untuk meningkatkan loyalitas dan adopsi rutin layanan Transjakarta — dari occasional users menjadi pengguna harian yang konsisten.</p>
+    <div class="hero-meta">
+      <div class="meta-item"><strong>Metode</strong>User Segmentation, RICE Framework, Competitive Benchmark, KPI Tree</div>
+      <div class="meta-item"><strong>Data</strong>GTFS Transjakarta, Laporan Kinerja 2024, Satu Data Jakarta, BPS Jakarta</div>
+      <div class="meta-item"><strong>Output</strong>Strategic Proposal + Pilot Design + KPI Dashboard</div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- KONTEKS -->
+  <div class="section">
+    <p class="section-label">Problem Statement</p>
+    <h2>Peluang yang Belum Dimaksimalkan</h2>
+    <p>Dengan lebih dari <strong>217 juta penumpang di 2024</strong>, Transjakarta terus tumbuh. Namun pertumbuhan ridership tidak hanya bergantung pada penambahan armada dan rute — melainkan pada kemampuan mengkonversi <em>occasional users</em> menjadi pengguna rutin yang loyal. Ini adalah domain <strong>business enablement</strong>: memastikan layanan, informasi, dan ekosistem yang mendukung pengguna untuk memilih Transjakarta sebagai moda utama mereka.</p>
+
+    <div class="chart-block">
+      <img src="charts/2A_ridership_projection.png" alt="Proyeksi Ridership">
+      <p class="chart-caption">Gap antara proyeksi baseline dan proyeksi dengan business enablement menggambarkan potensi yang dapat dicapai melalui inisiatif strategis | Proyeksi bersifat indikatif</p>
+    </div>
+  </div>
+
+  <!-- SEGMENTASI -->
+  <div class="section">
+    <p class="section-label">User Segmentation</p>
+    <h2>Siapa Pengguna Transjakarta?</h2>
+    <p>Segmentasi dikembangkan berdasarkan pola riset transportasi publik Jakarta (BPS, Dishub DKI) dan karakteristik perilaku mobilitas urban:</p>
+
+    <div class="chart-block">
+      <img src="charts/2B_user_segmentation.png" alt="Segmentasi Pengguna">
+      <p class="chart-caption">Daily Commuters adalah kontributor terbesar, namun Occasional Users dan Non-Users menyimpan potensi konversi paling tinggi</p>
+    </div>
+
+    <div class="seg-grid">
+      <div class="seg-card">
+        <div class="seg-name">Segmen 1</div>
+        <h4>Daily Commuters</h4>
+        <ul>
+          <li>Pekerja kantoran rutin</li>
+          <li>Sensitif terhadap waktu & reliability</li>
+          <li>Pain point: kepadatan jam sibuk</li>
+          <li>Prioritas: pertahankan loyalitas</li>
+        </ul>
+      </div>
+      <div class="seg-card">
+        <div class="seg-name">Segmen 2</div>
+        <h4>Students & Young Professionals</h4>
+        <ul>
+          <li>Digital-savvy, harga sensitif</li>
+          <li>Terbuka terhadap campaign</li>
+          <li>Pain point: bingung rute, keterlambatan</li>
+          <li>Prioritas: bangun kebiasaan early</li>
+        </ul>
+      </div>
+      <div class="seg-card">
+        <div class="seg-name">Segmen 3 — TARGET</div>
+        <h4>Occasional Users & Non-Users</h4>
+        <ul>
+          <li>Punya opsi ojol/motor/mobil</li>
+          <li>Belum menjadikan TJ default</li>
+          <li>Pain point: bingung rute, persepsi lama</li>
+          <li>Prioritas: KONVERSI ke pengguna rutin</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- BENCHMARK -->
+  <div class="section">
+    <p class="section-label">Competitive Analysis</p>
+    <h2>Posisi Transjakarta vs Moda Lain</h2>
+    <p>Benchmark komparatif Transjakarta terhadap MRT Jakarta, KRL Commuter, Ojek Online, dan Bus Reguler di 6 dimensi layanan:</p>
+
+    <div class="chart-block">
+      <img src="charts/2C_benchmark.png" alt="Benchmark Kompetitif">
+      <p class="chart-caption">Transjakarta unggul di harga dan jangkauan rute, namun tertinggal di kemudahan informasi, integrasi last-mile, dan reliability perception | Skoring berbasis analisis komparatif publik</p>
+    </div>
+
+    <div class="insight-box">
+      <h4>Strategic Insight</h4>
+      <p>Transjakarta tidak perlu "mengalahkan" ojek online di convenience — itu bukan pertarungan yang bisa dimenangkan. Strategi yang lebih efektif adalah <strong>memperkuat gap uniknya</strong> (harga + jangkauan) sambil menutup gap kritis di informasi rute dan last-mile integration yang selama ini menjadi hambatan adopsi.</p>
+    </div>
+  </div>
+
+  <!-- RICE -->
+  <div class="section">
+    <p class="section-label">Prioritasi Inisiatif</p>
+    <h2>RICE Framework Scoring</h2>
+    <p>Menggunakan RICE (Reach × Impact × Confidence / Effort), 8 inisiatif diprioritasi berdasarkan potensi dampak relatif terhadap resource yang dibutuhkan:</p>
+
+    <div class="chart-block">
+      <img src="charts/2D_rice.png" alt="RICE Prioritization">
+      <p class="chart-caption">Transfer Clarity Kit dan TJ Starter Pack mendapatkan skor RICE tertinggi — high impact, high confidence, low effort</p>
+    </div>
+  </div>
+
+  <!-- TJ ROUTINE+ -->
+  <div class="section">
+    <p class="section-label">Flagship Initiative</p>
+    <h2>TJ Routine+: Program Adopsi Pengguna</h2>
+    <p><strong>TJ Routine+</strong> adalah program business enablement untuk mengkonversi occasional users menjadi pengguna rutin Transjakarta melalui empat komponen terintegrasi:</p>
+
+    <div class="chart-block">
+      <img src="charts/2E_tj_routine_plus.png" alt="TJ Routine+ Architecture">
+      <p class="chart-caption">Arsitektur program TJ Routine+ dengan 4 komponen yang saling mendukung — dari informasi personal hingga sistem feedback loop</p>
+    </div>
+
+    <div class="initiative-box">
+      <h3>Pilot Design: TJ Routine+ for First Jobbers</h3>
+      <p>Sebagai langkah pertama yang terukur, pilot dirancang untuk segmen yang paling siap dikonversi:</p>
+      <div class="comp-grid">
+        <div class="comp-item">
+          <h5>Target Segmen</h5>
+          <p>Pekerja muda 22–30 tahun di koridor Sudirman–Thamrin–Kuningan–Blok M</p>
+        </div>
+        <div class="comp-item">
+          <h5>Durasi Pilot</h5>
+          <p>30 hari pertama dengan evaluasi mingguan dan iterasi cepat</p>
+        </div>
+        <div class="comp-item">
+          <h5>Intervensi Utama</h5>
+          <p>Route starter pack + peak-hour transfer guide + office-area campaign + feedback QR</p>
+        </div>
+        <div class="comp-item">
+          <h5>Success Metrics</h5>
+          <p>Repeat usage intention, route confidence score, reduction in "bingung rute" feedback</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KPI -->
+  <div class="section">
+    <p class="section-label">Measurement Framework</p>
+    <h2>KPI Dashboard</h2>
+    <p>Setiap inisiatif dalam TJ Routine+ dilengkapi KPI yang terukur dengan baseline dan target yang jelas:</p>
+
+    <div class="chart-block">
+      <img src="charts/2F_kpi_dashboard.png" alt="KPI Dashboard">
+      <p class="chart-caption">8 KPI utama program — mencakup dimensi adoption, experience, dan operational efficiency | Nilai baseline bersifat estimasi indikatif</p>
+    </div>
+
+    <div class="insight-box">
+      <h4>Prinsip Pengukuran</h4>
+      <p>Program ini tidak mengklaim perubahan ridership dalam jangka pendek. Fokusnya adalah pada <strong>leading indicators</strong>: kepercayaan pengguna terhadap rute, frekuensi kunjungan, dan reduksi friction dalam pengalaman pertama — yang menjadi fondasi loyalitas jangka panjang.</p>
+    </div>
+  </div>
+
+  <!-- CLOSING -->
+  <div class="section">
+    <p class="section-label">Kesimpulan</p>
+    <h2>Dari Analisis ke Aksi</h2>
+    <p>Kedua proyek dalam portfolio ini dibangun dengan satu keyakinan: <strong>transportasi publik yang baik bukan sekadar soal infrastruktur, tapi soal ekosistem</strong> — informasi yang jelas, pengalaman yang predictable, dan layanan yang berpihak pada pengguna. Transjakarta telah membangun fondasi yang kuat. Business Enablement adalah lapisan berikutnya yang akan mengunci loyalitas pengguna dan mendorong adopsi yang lebih luas.</p>
+
+    <p>Sebagai calon Management Trainee, saya tidak hanya ingin memahami Transjakarta dari luar — saya ingin berkontribusi membangunnya dari dalam, dengan kombinasi analytical thinking, kemampuan koordinasi lintas fungsi, dan semangat untuk belajar hal baru yang terus saya kembangkan.</p>
+  </div>
+
+</div>
+
+<div class="nav-footer">
+  <a href="project1.html" class="nav-back">← Project 01: Service Diagnostic</a>
+  <a href="index.html">Kembali ke Beranda Portfolio →</a>
+</div>
+
+</body>
+</html>
