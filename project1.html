@@ -134,7 +134,7 @@ tbody tr:nth-child(even) td{background:var(--light);}
     </div>
     <div class="callout-gray">
       <h4>Metodologi Sampling Ulasan Publik</h4>
-      <p>Ulasan Google Maps digunakan sebagai proxy qualitative untuk mengidentifikasi pola keluhan. Proses: (1) memilih 4 halte dengan volume ulasan tertinggi (Dukuh Atas, Cawang, Harmoni, Blok M), (2) membaca 30-50 ulasan per halte, (3) mengkategorikan tema yang muncul berulang. Ini bukan analisis sentimen kuantitatif dan tidak mewakili seluruh pengguna secara statistik.</p>
+      <p>Ulasan Google Maps digunakan sebagai proxy qualitative untuk mengidentifikasi pola keluhan. Proses: (1) memilih 4 halte dengan volume ulasan tertinggi (Dukuh Atas, Cawang, Harmoni, Blok M), (2) membaca sekitar 40 ulasan per halte (total sekitar 160 ulasan), diakses Mei 2026, (3) mengkategorikan tema yang muncul berulang ke dalam 5 tema pain point: navigasi transit, kepadatan, waktu tunggu, informasi rute, dan last-mile. Ini bukan analisis sentimen kuantitatif dan tidak mewakili seluruh pengguna secara statistik.</p>
     </div>
   </div>
 
@@ -202,6 +202,10 @@ tbody tr:nth-child(even) td{background:var(--light);}
       <h4>Insight Kunci</h4>
       <p>Titik transit dengan fungsi interchange (Dukuh Atas, Cawang, Harmoni) menunjukkan indeks kompleksitas tertinggi. Ini konsisten dengan pola ulasan publik yang menempatkan ketiga titik ini sebagai sumber keluhan navigasi terbanyak.</p>
     </div>
+    <div class="callout-gray">
+      <h4>Mini-Method: Corridor Complexity Index (0-100)</h4>
+      <p>Indeks dihitung dari tiga variabel dengan bobot yang sama: (1) <strong>Jumlah rute yang melewati titik</strong> — dari data GTFS publik Transjakarta; (2) <strong>Jumlah transfer yang diperlukan</strong> — dari simulasi perjalanan digital di 6 skenario; (3) <strong>Volume keluhan navigasi</strong> — dari kategorisasi ulasan publik. Normalisasi ke skala 0-100 untuk memudahkan perbandingan antar koridor. Bukan data operasional resmi Transjakarta.</p>
+    </div>
   </div>
 
   <div class="divider"></div>
@@ -242,6 +246,10 @@ tbody tr:nth-child(even) td{background:var(--light);}
     <div class="callout-gray">
       <h4>Catatan Tingkat Kritis</h4>
       <p>Kategorisasi Tinggi / Sedang-Tinggi / Sedang didasarkan pada: frekuensi kemunculan tema di ulasan publik, jumlah sumber yang mengkonfirmasi, dan tingkat kompleksitas navigasi dari simulasi perjalanan digital. Ini bukan skor numerik formal.</p>
+    </div>
+    <div class="callout-gray" style="margin-top:0;">
+      <h4>Mini-Method: Friction Score</h4>
+      <p>Tiga variabel dengan bobot yang sama: (1) <strong>Frekuensi keluhan</strong> — seberapa sering tema muncul di sekitar 160 ulasan publik yang disampling; (2) <strong>Konsistensi lintas sumber</strong> — apakah tema dikonfirmasi oleh media, forum, dan simulasi perjalanan; (3) <strong>Kompleksitas navigasi</strong> — jumlah keputusan yang harus dibuat penumpang per tahap dalam simulasi digital. Skor akhir dikelompokkan menjadi tiga kategori kualitatif, bukan angka presisi.</p>
     </div>
   </div>
 
