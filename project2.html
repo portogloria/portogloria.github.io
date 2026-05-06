@@ -3,222 +3,213 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Project 2 — Business Enablement | Gloria Sarah Saragih</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>Project 2: Strategy Analysis — Gloria Sarah Saragih</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root {
-  --ink: #0D1B2A; --blue: #1A4A8A; --blue-mid: #2D6DB5;
-  --blue-light: #C8DCF5; --blue-faint: #EEF5FD;
-  --orange: #D4541A; --orange-light: #FBE8DC;
-  --sand: #F5F0E8; --white: #FFFFFF;
-  --muted: #6B7A8D; --rule: #D8E4F0; --lgray: #F7F9FC;
+:root{
+  --blue:#1A4A8A;--blue-d:#0F2D5A;--blue-m:#2D6DB5;--blue-l:#C8DCF5;--blue-f:#EEF5FD;
+  --orange:#D4541A;--orange-l:#FBE8DC;--green:#1E6B45;--red:#B03020;
+  --ink:#0D1B2A;--muted:#6B7A8D;--light:#F7F9FC;--rule:#DDE6F0;--white:#FFFFFF;
 }
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--ink); overflow-x: hidden; }
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--white);line-height:1.6;}
 
-/* NAV */
-nav { position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 16px 48px; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--rule); }
-.nav-back a { font-size: 0.82rem; font-weight: 500; color: var(--muted); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color 0.2s; }
-.nav-back a:hover { color: var(--blue); }
-.nav-title { font-family: 'DM Serif Display', serif; font-size: 0.95rem; color: var(--orange); }
-.nav-next a { font-size: 0.82rem; font-weight: 500; color: var(--muted); text-decoration: none; transition: color 0.2s; }
-.nav-next a:hover { color: var(--orange); }
+nav{position:sticky;top:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:0 48px;height:52px;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule);}
+.nav-back a{font-size:0.8rem;font-weight:500;color:var(--muted);text-decoration:none;transition:color .2s;}
+.nav-back a:hover{color:var(--blue);}
+.nav-title{font-size:0.82rem;font-weight:700;color:var(--orange);}
+.nav-next a{font-size:0.8rem;font-weight:500;color:var(--muted);text-decoration:none;transition:color .2s;}
+.nav-next a:hover{color:var(--blue);}
+@media(max-width:640px){nav{padding:0 20px;}.nav-title{display:none;}}
 
-/* HERO — ALL WHITE TEXT */
-.hero {
-  background: linear-gradient(135deg, #1A0A03 0%, #5A1F08 45%, #A03A0D 100%);
-  padding: 80px 48px 72px; position: relative; overflow: hidden;
-}
-.hero-pattern {
-  position: absolute; inset: 0; z-index: 0;
-  background-image: radial-gradient(circle at 70% 30%, rgba(212,84,26,0.3) 0%, transparent 50%),
-    radial-gradient(circle at 20% 80%, rgba(26,74,138,0.15) 0%, transparent 40%);
-}
-.hero-inner { position: relative; z-index: 1; max-width: 860px; }
-.hero-tag { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 28px; }
-.hero-tag .dot { width: 6px; height: 6px; background: #F5C07A; border-radius: 50%; }
-.hero-tag span { font-size: 0.75rem; font-weight: 500; color: rgba(255,255,255,0.5); letter-spacing: 2px; text-transform: uppercase; }
-.hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 4vw, 3.2rem); color: white; line-height: 1.15; margin-bottom: 20px; letter-spacing: -0.5px; }
-.hero-desc { font-size: 1rem; color: rgba(255,255,255,0.75); line-height: 1.75; max-width: 660px; margin-bottom: 40px; font-weight: 300; }
-.hero-meta { display: flex; gap: 0; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 28px; }
-.meta-block { padding: 0 36px 0 0; margin-right: 36px; border-right: 1px solid rgba(255,255,255,0.1); }
-.meta-block:last-child { border-right: none; }
-.meta-label { font-size: 0.7rem; font-weight: 600; color: rgba(255,255,255,0.4); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 5px; }
-.meta-val { font-size: 0.88rem; color: rgba(255,255,255,0.85); font-weight: 400; }
+.hero{background:linear-gradient(135deg,#3D0F05,#7A2A0A,var(--orange));padding:64px 56px 56px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 75% 25%,rgba(255,255,255,.06) 0%,transparent 55%);}
+.hero-inner{position:relative;z-index:1;max-width:820px;}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;margin-bottom:22px;}
+.htag-dot{width:5px;height:5px;background:rgba(255,255,255,.6);border-radius:50%;}
+.htag-txt{font-size:0.7rem;font-weight:600;color:rgba(255,255,255,.45);letter-spacing:2px;text-transform:uppercase;}
+.hero h1{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;color:var(--white);line-height:1.15;margin-bottom:16px;letter-spacing:-0.5px;}
+.hero-desc{font-size:0.97rem;color:rgba(255,255,255,.75);line-height:1.75;max-width:640px;margin-bottom:36px;font-weight:300;}
+.hero-meta{display:flex;gap:0;flex-wrap:wrap;padding-top:24px;border-top:1px solid rgba(255,255,255,.15);}
+.meta-b{padding-right:32px;margin-right:32px;border-right:1px solid rgba(255,255,255,.15);}
+.meta-b:last-child{border-right:none;}
+.meta-lbl{font-size:0.65rem;font-weight:600;color:rgba(255,255,255,.38);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;}
+.meta-val{font-size:0.83rem;color:rgba(255,255,255,.85);font-weight:400;}
+@media(max-width:640px){.hero{padding:48px 20px 40px;}.hero-meta{flex-direction:column;gap:14px;}.meta-b{border:none;padding:0;margin:0;}}
 
-/* CONTENT */
-.content { max-width: 860px; margin: 0 auto; padding: 0 48px 80px; }
-@media(max-width:640px) { .content { padding: 0 24px 60px; } nav { padding: 14px 24px; } .hero { padding: 60px 24px 56px; } .hero-meta { flex-direction: column; gap: 16px; } .meta-block { border-right: none; padding-right: 0; margin-right: 0; } }
+.content{max-width:820px;margin:0 auto;padding:0 56px 80px;}
+@media(max-width:640px){.content{padding:0 20px 60px;}}
 
-.content-section { padding-top: 64px; padding-bottom: 8px; }
-.section-label { font-size: 0.72rem; font-weight: 600; color: var(--orange); letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 10px; }
-h2 { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--ink); margin-bottom: 16px; letter-spacing: -0.3px; }
-h3 { font-size: 1.05rem; font-weight: 600; color: var(--ink); margin-bottom: 12px; }
-p { font-size: 0.95rem; color: var(--muted); line-height: 1.8; margin-bottom: 16px; font-weight: 300; }
-p strong { color: var(--ink); font-weight: 600; }
+.cs{padding-top:56px;}
+.s-label{font-size:0.68rem;font-weight:700;color:var(--orange);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:8px;}
+h2{font-size:1.55rem;font-weight:800;color:var(--ink);margin-bottom:14px;letter-spacing:-0.3px;}
+h3{font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:10px;}
+p{font-size:0.93rem;color:var(--muted);line-height:1.8;margin-bottom:14px;font-weight:300;}
+p strong{color:var(--ink);font-weight:600;}
+.divider{height:1px;background:var(--rule);margin:56px 0 0;}
 
-.divider { height: 1px; background: var(--rule); margin: 64px 0 0; }
+.chart-box{background:var(--light);border:1px solid var(--rule);border-radius:6px;padding:24px;margin:22px 0;}
+.chart-box img{width:100%;height:auto;display:block;border-radius:3px;}
+.chart-note{font-size:0.76rem;color:var(--muted);margin-top:10px;text-align:center;font-style:italic;font-weight:300;line-height:1.5;margin-bottom:0;}
 
-.chart-wrap { background: var(--lgray); border: 1px solid var(--rule); border-radius: 4px; padding: 28px; margin: 28px 0; }
-.chart-wrap img { width: 100%; height: auto; display: block; border-radius: 2px; }
-.chart-note { font-size: 0.78rem; color: var(--muted); margin-top: 12px; text-align: center; font-style: italic; font-weight: 300; line-height: 1.5; margin-bottom: 0; }
+.callout-blue{border-left:3px solid var(--blue);background:var(--blue-f);padding:16px 20px;margin:20px 0;border-radius:0 4px 4px 0;}
+.callout-blue h4{font-size:0.84rem;font-weight:600;color:var(--blue);margin-bottom:5px;}
+.callout-blue p{color:#2A3A4A;margin:0;font-size:0.85rem;font-weight:400;}
 
-.callout { border-left: 3px solid var(--orange); background: var(--orange-light); padding: 20px 24px; margin: 24px 0; border-radius: 0 4px 4px 0; }
-.callout h4 { font-size: 0.88rem; font-weight: 600; color: var(--orange); margin-bottom: 6px; }
-.callout p { color: #3D1A0A; margin: 0; font-size: 0.88rem; font-weight: 400; }
+.callout-or{border-left:3px solid var(--orange);background:var(--orange-l);padding:16px 20px;margin:20px 0;border-radius:0 4px 4px 0;}
+.callout-or h4{font-size:0.84rem;font-weight:600;color:var(--orange);margin-bottom:5px;}
+.callout-or p{color:#4A2010;margin:0;font-size:0.85rem;font-weight:400;}
 
-.callout-blue { border-left: 3px solid var(--blue); background: var(--blue-faint); padding: 20px 24px; margin: 24px 0; border-radius: 0 4px 4px 0; }
-.callout-blue h4 { font-size: 0.88rem; font-weight: 600; color: var(--blue); margin-bottom: 6px; }
-.callout-blue p { color: #0A2A4A; margin: 0; font-size: 0.88rem; font-weight: 400; }
+.callout-gray{border-left:3px solid #9AA8B8;background:#F4F6F9;padding:16px 20px;margin:20px 0;border-radius:0 4px 4px 0;}
+.callout-gray h4{font-size:0.84rem;font-weight:600;color:#4A5A6A;margin-bottom:5px;}
+.callout-gray p{color:#4A5A6A;margin:0;font-size:0.85rem;font-weight:400;}
 
-/* TABLE */
-.table-wrap { overflow-x: auto; margin: 24px 0; }
-table { width: 100%; border-collapse: collapse; }
-thead th { background: var(--orange); color: white; padding: 12px 16px; font-size: 0.82rem; font-weight: 600; text-align: left; }
-tbody td { padding: 12px 16px; font-size: 0.85rem; color: var(--muted); border-bottom: 1px solid var(--rule); font-weight: 300; }
-tbody td strong { color: var(--ink); font-weight: 500; }
-tbody tr:last-child td { border-bottom: none; }
-tbody tr:nth-child(even) td { background: var(--lgray); }
+.callout-warn{border-left:3px solid #C08010;background:#FBF5E0;padding:16px 20px;margin:20px 0;border-radius:0 4px 4px 0;}
+.callout-warn h4{font-size:0.84rem;font-weight:600;color:#8A6010;margin-bottom:5px;}
+.callout-warn p{color:#6A4A10;margin:0;font-size:0.85rem;font-weight:400;}
 
-/* SEGMENT CARDS */
-.seg-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin: 24px 0; }
-@media(max-width:700px) { .seg-grid { grid-template-columns: 1fr; } }
-.seg-card { padding: 24px; border: 1px solid var(--rule); border-radius: 2px; background: white; transition: border-color 0.2s; }
-.seg-card:hover { border-color: var(--orange); }
-.seg-card.target { border-color: var(--orange); background: var(--orange-light); }
-.seg-label { font-size: 0.7rem; font-weight: 600; color: var(--orange); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 10px; }
-.seg-card h4 { font-size: 0.95rem; font-weight: 600; color: var(--ink); margin-bottom: 12px; }
-.seg-card ul { list-style: none; }
-.seg-card ul li { font-size: 0.83rem; color: var(--muted); padding: 5px 0; border-bottom: 1px solid var(--rule); font-weight: 300; display: flex; gap: 8px; }
-.seg-card ul li::before { content: '—'; color: var(--orange); flex-shrink: 0; }
-.seg-card ul li:last-child { border-bottom: none; }
+.table-wrap{overflow-x:auto;margin:20px 0;}
+table{width:100%;border-collapse:collapse;}
+thead th{background:var(--orange);color:var(--white);padding:11px 14px;font-size:0.8rem;font-weight:600;text-align:left;}
+.blue-head thead th{background:var(--blue);}
+tbody td{padding:11px 14px;font-size:0.83rem;color:var(--muted);border-bottom:1px solid var(--rule);font-weight:300;}
+tbody td strong{color:var(--ink);font-weight:500;}
+tbody tr:last-child td{border:none;}
+tbody tr:nth-child(even) td{background:var(--light);}
 
-/* INITIATIVE BOX */
-.initiative { border: 1px solid var(--rule); border-radius: 2px; padding: 28px; margin: 28px 0; background: var(--lgray); border-left: 4px solid var(--orange); }
-.initiative h3 { color: var(--orange); font-size: 1.05rem; margin-bottom: 16px; }
-.comp-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; }
-@media(max-width:500px) { .comp-grid { grid-template-columns: 1fr; } }
-.comp-block { background: white; padding: 16px; border-radius: 2px; border: 1px solid var(--rule); }
-.comp-block h5 { font-size: 0.8rem; font-weight: 600; color: var(--blue); margin-bottom: 6px; letter-spacing: 0.3px; }
-.comp-block p { font-size: 0.82rem; color: var(--muted); margin: 0; line-height: 1.55; font-weight: 300; }
+.seg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:20px 0;}
+@media(max-width:700px){.seg-grid{grid-template-columns:1fr;}}
+.seg-card{padding:20px;border:1px solid var(--rule);border-radius:4px;background:var(--white);transition:border-color .2s;}
+.seg-card.target{border-color:var(--orange);background:var(--orange-l);}
+.seg-lbl{font-size:0.68rem;font-weight:700;color:var(--orange);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;}
+.seg-card h4{font-size:0.9rem;font-weight:600;color:var(--ink);margin-bottom:10px;}
+.seg-card ul{list-style:none;}
+.seg-card ul li{font-size:0.82rem;color:var(--muted);padding:5px 0;border-bottom:1px solid var(--rule);font-weight:300;display:flex;gap:7px;}
+.seg-card ul li::before{content:"·";color:var(--orange);flex-shrink:0;font-weight:700;}
+.seg-card ul li:last-child{border:none;}
 
-/* NAV FOOTER */
-.nav-footer { border-top: 1px solid var(--rule); padding: 28px 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; background: var(--lgray); }
-.nav-footer a { text-decoration: none; font-size: 0.88rem; font-weight: 600; color: var(--blue); transition: color 0.2s; }
-.nav-footer a:hover { color: var(--orange); }
-@media(max-width:640px) { .nav-footer { padding: 24px; } }
+.pilot-box{border:1px solid var(--rule);border-radius:4px;padding:24px;margin:24px 0;background:var(--light);border-left:4px solid var(--orange);}
+.pilot-box h3{color:var(--orange);font-size:1rem;margin-bottom:14px;}
+.comp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+@media(max-width:500px){.comp-grid{grid-template-columns:1fr;}}
+.comp-b{background:var(--white);padding:14px;border-radius:4px;border:1px solid var(--rule);}
+.comp-b h5{font-size:0.78rem;font-weight:600;color:var(--blue);margin-bottom:5px;letter-spacing:0.2px;}
+.comp-b p{font-size:0.8rem;color:var(--muted);margin:0;line-height:1.55;font-weight:300;}
+
+.nav-footer{border-top:1px solid var(--rule);padding:24px 56px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;background:var(--light);}
+.nav-footer a{text-decoration:none;font-size:0.85rem;font-weight:600;color:var(--blue);transition:color .2s;}
+.nav-footer a:hover{color:var(--orange);}
+@media(max-width:640px){.nav-footer{padding:20px;}}
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="nav-back"><a href="project1.html">← Project 01</a></div>
-  <div class="nav-title">Project 02 — Business Enablement</div>
-  <div class="nav-next"><a href="index.html">Beranda →</a></div>
+  <div class="nav-back"><a href="project1.html">Project 01</a></div>
+  <div class="nav-title">Project 02 · Strategy Analysis</div>
+  <div class="nav-next"><a href="index.html">Beranda</a></div>
 </nav>
 
 <div class="hero">
-  <div class="hero-pattern"></div>
   <div class="hero-inner">
-    <div class="hero-tag"><div class="dot"></div><span>Project 02 · Independent Analysis</span></div>
-    <h1>Ridership Stickiness & Segment-Based Business Enablement Strategy</h1>
-    <p class="hero-desc">Strategi berbasis segmentasi pengguna untuk meningkatkan loyalitas dan adopsi rutin layanan Transjakarta — dari occasional users menjadi pengguna harian yang konsisten.</p>
+    <div class="hero-tag"><div class="htag-dot"></div><span class="htag-txt">Project 02 · Independent Analysis</span></div>
+    <h1>Ridership Stickiness &amp; Strategy for Adoption and Loyalty</h1>
+    <p class="hero-desc">Strategi peningkatan adopsi dan loyalitas pengguna Transjakarta berbasis segmentasi, benchmark kompetitif, dan prioritasi inisiatif yang terstruktur.</p>
     <div class="hero-meta">
-      <div class="meta-block">
-        <div class="meta-label">Metode</div>
-        <div class="meta-val">User Segmentation, RICE Framework, Competitive Benchmark, KPI Tree</div>
-      </div>
-      <div class="meta-block">
-        <div class="meta-label">Data</div>
-        <div class="meta-val">GTFS Transjakarta, Laporan Kinerja 2024, Satu Data Jakarta</div>
-      </div>
-      <div class="meta-block">
-        <div class="meta-label">Output</div>
-        <div class="meta-val">Strategic Proposal + Pilot Design + KPI Dashboard</div>
-      </div>
+      <div class="meta-b"><div class="meta-lbl">Metode</div><div class="meta-val">Segmentasi Pengguna, RICE Framework, Benchmark Kompetitif, KPI Tree</div></div>
+      <div class="meta-b"><div class="meta-lbl">Data</div><div class="meta-val">GTFS Transjakarta, Laporan Kinerja 2024, BPS DKI Jakarta</div></div>
+      <div class="meta-b"><div class="meta-lbl">Output</div><div class="meta-val">Strategic Proposal + Pilot Design + KPI Dashboard</div></div>
     </div>
   </div>
 </div>
 
 <div class="content">
 
-  <!-- PROBLEM -->
-  <div class="content-section">
-    <p class="section-label">Problem Statement</p>
-    <h2>Peluang yang Belum Dimaksimalkan</h2>
-    <p>Dengan <strong>217 juta penumpang di 2024</strong>, Transjakarta terus tumbuh. Namun pertumbuhan ridership tidak hanya bergantung pada penambahan armada dan rute — melainkan pada kemampuan mengkonversi <em>occasional users</em> menjadi pengguna rutin. Ini adalah domain business enablement.</p>
-    <div class="chart-wrap">
-      <img src="charts/2A_ridership_projection.png" alt="Proyeksi Ridership">
-      <p class="chart-note">Gap antara proyeksi baseline dan proyeksi dengan business enablement | Proyeksi bersifat indikatif berdasarkan tren CAGR historis</p>
+  <div class="cs">
+    <p class="s-label">Keterbatasan Analisis</p>
+    <h2>Limitations</h2>
+    <div class="callout-warn">
+      <h4>Outside-In Strategic Analysis</h4>
+      <p>Analisis ini tidak menggunakan data internal Transjakarta seperti data CRM, repeat usage rate aktual, atau survei kepuasan yang representatif. Segmentasi pengguna dikembangkan berdasarkan pola riset transportasi publik yang tersedia secara publik (BPS, Dishub DKI) dan tidak mewakili data segmentasi resmi Transjakarta. Semua proyeksi dan target KPI bersifat indikatif.</p>
     </div>
   </div>
 
   <div class="divider"></div>
 
-  <!-- DIRECTIONAL INSIGHTS -->
-  <div class="content-section">
-    <p class="section-label">Directional Insights</p>
+  <div class="cs">
+    <p class="s-label">Problem Statement</p>
+    <h2>Peluang yang Belum Dimaksimalkan</h2>
+    <p>Berdasarkan Laporan Kinerja Transjakarta (Feb 2025), jumlah penumpang mencapai <strong>371,4 juta di 2024</strong>, naik dari 285 juta di 2023. Pertumbuhan ridership tidak hanya bergantung pada penambahan armada dan rute, melainkan pada kemampuan mengkonversi pengguna sesekali menjadi pengguna rutin. Ini adalah fokus strategi peningkatan adopsi dan loyalitas pengguna.</p>
+    <div class="chart-box">
+      <img src="charts/2A_ridership_projection.png" alt="Proyeksi Ridership">
+      <p class="chart-note">Gap antara proyeksi baseline dan proyeksi dengan strategi adopsi yang aktif | Proyeksi indikatif berbasis tren CAGR historis</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="cs">
+    <p class="s-label">Directional Insights</p>
     <h2>Sinyal dari Desk-Based Validation</h2>
-    <p>Untuk mendukung strategi segmentasi, analisis dilakukan terhadap pola ulasan publik dan simulasi perjalanan digital. Temuan bersifat <em>directional</em> — sebagai panduan rekomendasi, bukan representasi statistik penuh.</p>
+    <p>Pola yang konsisten dari ulasan publik dan simulasi perjalanan digital, digunakan sebagai sinyal arah, bukan data representatif:</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>Temuan (dari ulasan publik & simulasi)</th><th>Implikasi Strategis</th></tr></thead>
+        <thead><tr><th>Temuan</th><th>Implikasi Strategis</th></tr></thead>
         <tbody>
-          <tr><td><strong>Pengguna bingung saat transit</strong> — konsisten di banyak ulasan halte interchange</td><td>Butuh route confidence tools & transfer clarity kit</td></tr>
-          <tr><td><strong>Ojol dipilih karena lebih "pasti"</strong> — perceived reliability lebih tinggi</td><td>TJ perlu meningkatkan predictability layanan</td></tr>
-          <tr><td><strong>Mahasiswa/pekerja muda sensitif harga</strong> — TJ sudah unggul di ini</td><td>Peluang campaign segment-based yang kuat</td></tr>
-          <tr><td><strong>Occasional users tidak tahu rute terbaik</strong> — barrier utama adopsi</td><td>Butuh route starter guide untuk new users</td></tr>
-          <tr><td><strong>Simulasi: rata-rata 2–3 keputusan per perjalanan transit</strong></td><td>Kompleksitas navigasi adalah hambatan utama adopsi rutin</td></tr>
+          <tr><td><strong>Pengguna bingung saat transit</strong>, konsisten di ulasan halte interchange utama</td><td>Butuh route confidence tools dan transfer clarity</td></tr>
+          <tr><td><strong>Ojek online dipilih karena lebih "pasti"</strong>, perceived reliability lebih tinggi</td><td>TJ perlu meningkatkan predictability layanan</td></tr>
+          <tr><td><strong>Mahasiswa dan pekerja muda sensitif harga</strong>, TJ sudah unggul di dimensi ini</td><td>Peluang campaign yang segment-specific</td></tr>
+          <tr><td><strong>Pengguna sesekali tidak tahu rute terbaik</strong>, barrier utama adopsi rutin</td><td>Butuh route starter guide untuk pengguna baru</td></tr>
+          <tr><td><strong>Rata-rata 2-3 keputusan per perjalanan transit</strong> dalam simulasi digital</td><td>Kompleksitas navigasi adalah hambatan utama</td></tr>
         </tbody>
       </table>
     </div>
-    <div class="callout">
+    <div class="callout-gray">
       <h4>Catatan Metodologi</h4>
-      <p>Temuan di atas bersifat directional — untuk mengidentifikasi pola yang konsisten, bukan menyajikan data survei formal yang representatif. Semua insight dapat diperkuat lebih lanjut dengan penelitian primer di tahap berikutnya.</p>
+      <p>Temuan di atas bersifat directional, bukan representasi statistik penuh. Semua insight dapat diperkuat dengan penelitian primer dan data internal Transjakarta di tahap berikutnya.</p>
     </div>
   </div>
 
   <div class="divider"></div>
 
-  <!-- SEGMENTATION -->
-  <div class="content-section">
-    <p class="section-label">User Segmentation</p>
+  <div class="cs">
+    <p class="s-label">Segmentasi Pengguna</p>
     <h2>Siapa Pengguna Transjakarta?</h2>
-    <p>Segmentasi dikembangkan berdasarkan pola riset transportasi publik Jakarta (BPS, Dishub DKI) dan karakteristik perilaku mobilitas urban yang tersedia secara publik.</p>
-    <div class="chart-wrap">
+    <p>Segmentasi dikembangkan berdasarkan pola riset transportasi publik Jakarta yang tersedia secara publik (BPS, Dishub DKI), bukan data segmentasi internal Transjakarta.</p>
+    <div class="chart-box">
       <img src="charts/2B_user_segmentation.png" alt="Segmentasi Pengguna">
-      <p class="chart-note">Daily Commuters adalah kontributor terbesar saat ini, namun Occasional Users dan Non-Users menyimpan potensi konversi paling tinggi</p>
+      <p class="chart-note">Daily Commuters adalah kontributor terbesar saat ini · Pengguna Sesekali dan Non-Pengguna menyimpan potensi konversi tertinggi</p>
     </div>
     <div class="seg-grid">
       <div class="seg-card">
-        <div class="seg-label">Segmen 1</div>
+        <div class="seg-lbl">Segmen 1</div>
         <h4>Daily Commuters</h4>
         <ul>
           <li>Pekerja kantoran rutin</li>
-          <li>Sensitif waktu & reliability</li>
+          <li>Sensitif waktu dan reliability</li>
           <li>Pain point: kepadatan jam sibuk</li>
-          <li>Prioritas: pertahankan loyalitas</li>
+          <li>Strategi: pertahankan loyalitas</li>
         </ul>
       </div>
       <div class="seg-card">
-        <div class="seg-label">Segmen 2</div>
-        <h4>Students & Young Professionals</h4>
+        <div class="seg-lbl">Segmen 2</div>
+        <h4>Mahasiswa dan Young Professionals</h4>
         <ul>
           <li>Digital-savvy, sensitif harga</li>
           <li>Terbuka terhadap campaign baru</li>
-          <li>Pain point: bingung rute & transfer</li>
-          <li>Prioritas: bangun kebiasaan sejak awal</li>
+          <li>Pain point: bingung rute dan transfer</li>
+          <li>Strategi: bangun kebiasaan sejak awal</li>
         </ul>
       </div>
       <div class="seg-card target">
-        <div class="seg-label">Segmen 3 — Prioritas</div>
-        <h4>Occasional Users & Non-Users</h4>
+        <div class="seg-lbl">Segmen 3 · Prioritas Konversi</div>
+        <h4>Pengguna Sesekali dan Non-Pengguna</h4>
         <ul>
-          <li>Punya opsi ojol/motor/mobil</li>
-          <li>Belum jadikan TJ default transport</li>
+          <li>Punya opsi ojek, motor, atau mobil</li>
+          <li>Belum jadikan TJ pilihan utama</li>
           <li>Pain point: bingung rute, persepsi lama</li>
-          <li>Prioritas: KONVERSI ke pengguna rutin</li>
+          <li>Strategi: konversi ke pengguna rutin</li>
         </ul>
       </div>
     </div>
@@ -226,92 +217,87 @@ tbody tr:nth-child(even) td { background: var(--lgray); }
 
   <div class="divider"></div>
 
-  <!-- BENCHMARK -->
-  <div class="content-section">
-    <p class="section-label">Competitive Analysis</p>
+  <div class="cs">
+    <p class="s-label">Analisis Kompetitif</p>
     <h2>Posisi Transjakarta vs Moda Lain</h2>
-    <p>Benchmark komparatif di 6 dimensi layanan — mengidentifikasi di mana Transjakarta unggul dan di mana gap kritis perlu ditutup.</p>
-    <div class="chart-wrap">
+    <p>Benchmark di 6 dimensi layanan untuk mengidentifikasi keunggulan unik Transjakarta dan gap yang perlu ditutup.</p>
+    <div class="chart-box">
       <img src="charts/2C_benchmark.png" alt="Benchmark Kompetitif">
-      <p class="chart-note">Transjakarta unggul di harga & jangkauan rute, namun gap kritis ada di kemudahan informasi dan integrasi last-mile</p>
+      <p class="chart-note">Transjakarta unggul di harga dan jangkauan rute · Gap kritis ada di kemudahan informasi dan integrasi last-mile</p>
     </div>
     <div class="callout-blue">
-      <h4>Strategic Insight</h4>
-      <p>Transjakarta tidak perlu mengalahkan ojek di convenience — itu bukan pertarungan yang bisa dimenangkan. Strategi lebih efektif: perkuat keunggulan unik (harga + jangkauan) sambil tutup gap kritis di informasi rute dan last-mile, yang menjadi hambatan adopsi terbesar pengguna baru.</p>
+      <h4>Insight Strategis</h4>
+      <p>Transjakarta tidak perlu mengalahkan ojek online di convenience. Strategi lebih efektif: perkuat keunggulan unik (harga dan jangkauan) sambil tutup gap kritis di informasi rute dan koneksi last-mile, yang menjadi hambatan utama adopsi pengguna baru.</p>
     </div>
   </div>
 
   <div class="divider"></div>
 
-  <!-- RICE -->
-  <div class="content-section">
-    <p class="section-label">Prioritasi Inisiatif</p>
+  <div class="cs">
+    <p class="s-label">Prioritasi Inisiatif</p>
     <h2>RICE Framework Scoring</h2>
-    <p>8 inisiatif diprioritasi menggunakan RICE (Reach × Impact × Confidence / Effort) — memberikan skor objektif untuk membandingkan potensi dampak relatif terhadap resource yang dibutuhkan.</p>
-    <div class="chart-wrap">
+    <p>8 inisiatif diprioritasi menggunakan RICE (Reach x Impact x Confidence / Effort) untuk membandingkan potensi dampak relatif terhadap resource yang dibutuhkan.</p>
+    <div class="chart-box">
       <img src="charts/2D_rice.png" alt="RICE Prioritization">
-      <p class="chart-note">Transfer Clarity Kit dan TJ Starter Pack mendapat skor RICE tertinggi — high impact, high confidence, relatif low effort</p>
+      <p class="chart-note">Transfer Clarity Kit dan TJ Starter Pack mendapat skor tertinggi: high impact, high confidence, low effort</p>
     </div>
   </div>
 
   <div class="divider"></div>
 
-  <!-- TJ ROUTINE+ -->
-  <div class="content-section">
-    <p class="section-label">Flagship Initiative</p>
-    <h2>TJ Routine+: Program Adopsi Pengguna</h2>
-    <p><strong>TJ Routine+</strong> adalah program business enablement untuk mengkonversi occasional users menjadi pengguna rutin melalui empat komponen terintegrasi yang saling mendukung.</p>
-    <div class="callout" style="border-color:#6B7A8D;background:#F7F9FC;">
-      <h4 style="color:#3A4A5A;">Catatan: Status Proposal</h4>
-      <p style="color:#3A4A5A;">TJ Routine+ adalah <strong>proposal pilot indikatif</strong>, bukan rekomendasi final yang siap diimplementasi. Desain ini dikembangkan berdasarkan desk research dan analisis data publik — validasi lapangan, uji coba terbatas, dan penelitian primer bersama pengguna nyata diperlukan sebelum implementasi skala penuh.</p>
+  <div class="cs">
+    <p class="s-label">Proposal Pilot Program</p>
+    <h2>TJ Routine+: Strategi Peningkatan Adopsi Pengguna</h2>
+    <div class="callout-warn">
+      <h4>Status: Proposal Pilot Indikatif</h4>
+      <p>TJ Routine+ adalah proposal pilot berbasis desk research, bukan rekomendasi implementasi final. Desain ini dikembangkan untuk menunjukkan structured thinking dalam merancang program. Validasi lapangan, uji coba terbatas, dan penelitian primer bersama pengguna nyata diperlukan sebelum implementasi skala penuh.</p>
     </div>
-    <div class="chart-wrap">
+    <p>Program ini dirancang untuk mengkonversi pengguna sesekali menjadi pengguna rutin melalui empat komponen yang saling mendukung.</p>
+    <div class="chart-box">
       <img src="charts/2E_tj_routine_plus.png" alt="TJ Routine+ Architecture">
-      <p class="chart-note">4 komponen terintegrasi: personalized route guide, segment campaign, last-mile information hub, dan feedback loop system</p>
+      <p class="chart-note">4 komponen terintegrasi: panduan rute personal, campaign berbasis segmen, hub informasi last-mile, dan sistem feedback loop</p>
     </div>
-    <div class="initiative">
+    <div class="pilot-box">
       <h3>Pilot Design: TJ Routine+ for First Jobbers</h3>
       <div class="comp-grid">
-        <div class="comp-block"><h5>Target Segmen</h5><p>Pekerja muda 22–30 tahun di koridor Sudirman–Thamrin–Kuningan–Blok M</p></div>
-        <div class="comp-block"><h5>Durasi Pilot</h5><p>30 hari pertama dengan evaluasi mingguan dan iterasi cepat berbasis feedback</p></div>
-        <div class="comp-block"><h5>Intervensi Utama</h5><p>Route starter pack + peak-hour transfer guide + office-area campaign + feedback QR di halte</p></div>
-        <div class="comp-block"><h5>Success Metrics</h5><p>Repeat usage intention, route confidence score, reduksi keluhan "bingung rute"</p></div>
+        <div class="comp-b"><h5>Target Segmen</h5><p>Pekerja muda 22-30 tahun di koridor Sudirman-Thamrin-Kuningan-Blok M</p></div>
+        <div class="comp-b"><h5>Durasi Pilot</h5><p>30 hari pertama dengan evaluasi mingguan dan iterasi cepat berbasis feedback</p></div>
+        <div class="comp-b"><h5>Intervensi Utama</h5><p>Route starter pack + peak-hour transfer guide + office-area campaign + feedback QR di halte</p></div>
+        <div class="comp-b"><h5>Success Metrics</h5><p>Repeat usage intention, route confidence score, reduksi keluhan "bingung rute"</p></div>
       </div>
     </div>
   </div>
 
   <div class="divider"></div>
 
-  <!-- KPI -->
-  <div class="content-section">
-    <p class="section-label">Measurement Framework</p>
+  <div class="cs">
+    <p class="s-label">Measurement Framework</p>
     <h2>KPI Dashboard</h2>
-    <p>8 KPI utama program — mencakup dimensi adoption, experience quality, dan operational efficiency. Setiap KPI dilengkapi baseline estimasi dan target yang indikatif.</p>
-    <div class="chart-wrap">
+    <p>8 KPI utama program yang mencakup dimensi adoption, experience quality, dan efisiensi operasional. Semua nilai baseline dan target bersifat estimasi indikatif.</p>
+    <div class="chart-box">
       <img src="charts/2F_kpi_dashboard.png" alt="KPI Dashboard">
-      <p class="chart-note">Nilai baseline merupakan estimasi indikatif dari analisis pola keluhan publik & benchmark transportasi Jakarta</p>
+      <p class="chart-note">Nilai baseline adalah estimasi dari analisis pola keluhan publik dan benchmark transportasi Jakarta · Bukan data internal TJ</p>
     </div>
     <div class="callout-blue">
       <h4>Prinsip Pengukuran</h4>
-      <p>Program ini berfokus pada <strong>leading indicators</strong>: kepercayaan terhadap rute, frekuensi kunjungan, dan reduksi friction dalam pengalaman pertama — yang menjadi fondasi loyalitas jangka panjang, bukan sekadar angka ridership sesaat.</p>
+      <p>Program ini berfokus pada leading indicators: kepercayaan pengguna terhadap rute, frekuensi kunjungan, dan reduksi friction dalam pengalaman pertama. Ini adalah fondasi loyalitas jangka panjang, bukan sekadar angka ridership sesaat.</p>
     </div>
   </div>
 
   <div class="divider"></div>
 
-  <!-- CLOSING -->
-  <div class="content-section">
-    <p class="section-label">Kesimpulan</p>
+  <div class="cs">
+    <p class="s-label">Penutup</p>
     <h2>Dari Analisis ke Aksi</h2>
-    <p>Kedua proyek ini dibangun dengan satu keyakinan: <strong>transportasi publik yang baik bukan sekadar soal infrastruktur, tapi soal ekosistem</strong> — informasi yang jelas, pengalaman yang predictable, dan layanan yang berpihak pada pengguna. Transjakarta telah membangun fondasi yang kuat. Business Enablement adalah lapisan berikutnya yang akan mengunci loyalitas pengguna dan mendorong adopsi yang lebih luas.</p>
-    <p>Sebagai calon Management Trainee, saya tidak hanya ingin memahami Transjakarta dari luar — saya ingin berkontribusi membangunnya dari dalam, dengan kombinasi analytical thinking, koordinasi lintas fungsi, problem solving berbasis data, dan semangat belajar yang tinggi.</p>
+    <p>Kedua studi kasus ini dibangun dengan satu keyakinan: <strong>transportasi publik yang baik bukan sekadar soal infrastruktur, tapi soal ekosistem</strong>. Informasi yang jelas, pengalaman yang predictable, dan layanan yang berpihak pada pengguna adalah fondasi dari ekosistem itu.</p>
+    <p>Transjakarta telah membangun fondasi yang sangat kuat. Strategi peningkatan adopsi dan loyalitas pengguna adalah lapisan berikutnya yang akan mengunci pertumbuhan yang berkelanjutan. Sebagai calon Management Trainee, saya ingin berkontribusi pada lapisan itu dari dalam, dengan kemampuan analytical thinking, koordinasi lintas fungsi, dan semangat belajar yang tinggi.</p>
   </div>
 
 </div>
 
 <div class="nav-footer">
-  <a href="project1.html">← Project 01: Service Diagnostic</a>
-  <a href="index.html">Kembali ke Beranda →</a>
+  <a href="project1.html">Project 01: Service Diagnostic</a>
+  <a href="index.html">Kembali ke Portfolio</a>
 </div>
 
 </body>
